@@ -79,20 +79,23 @@ def obter_inputs():
     for entry in entries:
         valores.append(entry.get())
         
-    nome = (entries[0].get())
-    cpf = (entries[1].get())
-    nascimento = (entries[2].get())
-    cep = (entries[3].get())
-    numero_casa = (entries[4].get())
-    bl = (entries[6].get())
-    ap = (entries[7].get())
-    telefone = (entries[8].get())
-    telefone2 = (entries[9].get())
-    email = (entries[10].get())
-    plano = (entries[11].get())
-    vencimento = (entries[12].get())
-    filial = (entries[13].get())
-    pppoe = (entries[14].get())
+    nome           =  (entries[0].get())
+    cpf            =  (entries[1].get())
+    nascimento     =  (entries[2].get())
+    cep            =  (entries[3].get())
+    numero_casa    =  (entries[4].get())
+    bl             =  (entries[6].get())
+    ap             =  (entries[7].get())
+    telefone       =  (entries[8].get())
+    telefone2      =  (entries[9].get())
+    email          =  (entries[10].get())
+    plano          =  (entries[11].get())
+    vencimento     =  (entries[12].get())
+    filial         =  (entries[13].get())
+    pppoe          =  (entries[14].get())
+
+
+
     login = entry_login.get()
     senha = entry_senha.get()
     
@@ -450,16 +453,18 @@ def abrir_ixc():
     driver.find_element('xpath', '//*[@id="10"]/dl/div/div/div[3]/div[1]/button[1]').click()
     time.sleep(1)
     
+
+
+
     if   int(plano) == 100 : driver.find_element('xpath', '//*[@id="id_grupo"]').send_keys( '77' + Keys.TAB )
-        
-    elif int(plano) == 200 : driver.find_element('xpath', '//*[@id="id_grupo"]').send_keys( '71' + Keys.TAB )
-            
-    elif int(plano) == 400 : driver.find_element('xpath', '//*[@id="id_grupo"]').send_keys( '27' + Keys.TAB )
-                
-    elif int(plano) == 500 : driver.find_element('xpath', '//*[@id="id_grupo"]').send_keys( '64' + Keys.TAB )
-                             
+    elif int(plano) == 200 : driver.find_element('xpath', '//*[@id="id_grupo"]').send_keys( '71' + Keys.TAB )            
+    elif int(plano) == 400 : driver.find_element('xpath', '//*[@id="id_grupo"]').send_keys( '27' + Keys.TAB )                
+    elif int(plano) == 500 : driver.find_element('xpath', '//*[@id="id_grupo"]').send_keys( '64' + Keys.TAB )                       
     elif int(plano) == 700 : driver.find_element('xpath', '//*[@id="id_vd_contrato"]').send_keys( '68' + Keys.TAB )
-                        
+
+
+
+
     
     driver.find_element('xpath', '//*[@id="login"]').send_keys( pppoe )
 
