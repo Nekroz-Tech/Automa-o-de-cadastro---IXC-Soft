@@ -261,7 +261,10 @@ def abrir_ixc():
     driver.get("https://ixc.hipervi.com.br/adm.php")
     driver.find_element('xpath' , '//*[@id="email"]').send_keys( login)
     driver.find_element('xpath' , '//*[@id="senha"]').send_keys( senha + Keys.RETURN )
+
+
 #CADASTRO
+    
     driver.find_element('xpath', '//*[@id="menu04400d48d04acd3599cf545dafbb90ed"]/div/a').click()
     driver.find_element('xpath', '//*[@id="grupo_menu04400d48d04acd3599cf545dafbb90ed"]/ul/li[1]/a').click()
     driver.find_element('xpath', '//*[@id="1_grid"]/div/div[2]/div[1]/button[1]').click()
@@ -312,32 +315,27 @@ def abrir_ixc():
     
     time.sleep(1)
     
-    if int(plano) == 100 :
-        driver.find_element('xpath', '//*[@id="id_vd_contrato"]').send_keys( '79' + Keys.TAB )
-    else :
-        if int(plano) == 200 :
-            driver.find_element('xpath', '//*[@id="id_vd_contrato"]').send_keys( '71' + Keys.TAB )
-        else :
-            if int(plano) == 400 :
-                driver.find_element('xpath', '//*[@id="id_vd_contrato"]').send_keys( '29' + Keys.TAB )
-            else :
-                if int(plano) == 500 :
-                    driver.find_element('xpath', '//*[@id="id_vd_contrato"]').send_keys( '80' + Keys.TAB )
-    
-                else :
-                    if int(plano) == 700 :
-                        driver.find_element('xpath', '//*[@id="id_vd_contrato"]').send_keys( '68' + Keys.TAB )
-    if int(vencimento) == 5 :
-        driver.find_element('xpath', '//*[@id="id_tipo_contrato"]').send_keys( '05' + Keys.TAB )
-    if int(vencimento) == 10 :
-        driver.find_element('xpath', '//*[@id="id_tipo_contrato"]').send_keys( '10' + Keys.TAB )
-    if int(vencimento) == 15 :
-        driver.find_element('xpath', '//*[@id="id_tipo_contrato"]').send_keys( '15' + Keys.TAB )
-    if int(vencimento) == 20 :
-        driver.find_element('xpath', '//*[@id="id_tipo_contrato"]').send_keys( '20' + Keys.TAB )
-    if int(vencimento) == 25 :
-        driver.find_element('xpath', '//*[@id="id_tipo_contrato"]').send_keys( '25' + Keys.TAB )
+    if   int(plano) == 100 : driver.find_element('xpath', '//*[@id="id_vd_contrato"]').send_keys( '79' + Keys.TAB )
+    elif int(plano) == 200 : driver.find_element('xpath', '//*[@id="id_vd_contrato"]').send_keys( '71' + Keys.TAB )
+    elif int(plano) == 400 : driver.find_element('xpath', '//*[@id="id_vd_contrato"]').send_keys( '29' + Keys.TAB )
+    elif int(plano) == 500 : driver.find_element('xpath', '//*[@id="id_vd_contrato"]').send_keys( '80' + Keys.TAB )           
+    elif int(plano) == 700 : driver.find_element('xpath', '//*[@id="id_vd_contrato"]').send_keys( '68' + Keys.TAB )
+                        
+
+
+
+
+
+    if   int(vencimento) == 5  : driver.find_element('xpath', '//*[@id="id_tipo_contrato"]').send_keys( '05' + Keys.TAB )
+    elif int(vencimento) == 10 : driver.find_element('xpath', '//*[@id="id_tipo_contrato"]').send_keys( '10' + Keys.TAB )
+    elif int(vencimento) == 15 : driver.find_element('xpath', '//*[@id="id_tipo_contrato"]').send_keys( '15' + Keys.TAB )
+    elif int(vencimento) == 20 : driver.find_element('xpath', '//*[@id="id_tipo_contrato"]').send_keys( '20' + Keys.TAB )
+    elif int(vencimento) == 25 : driver.find_element('xpath', '//*[@id="id_tipo_contrato"]').send_keys( '25' + Keys.TAB )
         
+
+
+
+
     if int(filial) == 1 :
         if checkbox_play.get():   
             driver.find_element('xpath', '//*[@id="id_modelo"]').send_keys( '28' + Keys.TAB )
@@ -347,6 +345,9 @@ def abrir_ixc():
             else :
                 driver.find_element('xpath', '//*[@id="descricao_aux_plano_venda"]').send_keys( "Huawei Ax2 em comodato + Izy Play" )
                 driver.find_element('xpath', '//*[@id="contrato"]').send_keys( " + 1 ponto Nave Play por R$70,00")
+
+
+
         else :
             driver.find_element('xpath', '//*[@id="id_modelo"]').send_keys( '4' + Keys.TAB )
         if checkbox_voip.get():
@@ -355,16 +356,23 @@ def abrir_ixc():
             else :
                 driver.find_element('xpath', '//*[@id="descricao_aux_plano_venda"]').send_keys( "ONT Huawei em comodato" )
                 driver.find_element('xpath', '//*[@id="contrato"]').send_keys( " + Voip por R$30,00" )
+
+
+
         else :
             if checkbox_play.get():
                 driver.find_element('xpath', '//*[@id="descricao_aux_plano_venda"]').send_keys( "" )
             else :
                 driver.find_element('xpath', '//*[@id="descricao_aux_plano_venda"]').send_keys( "Huawei Ax2 em comodato" )
         
+
+
+
     #PARA NOVA WEB
     else :
         if checkbox_play.get():
             driver.find_element('xpath', '//*[@id="id_modelo"]').send_keys('31' + Keys.TAB)
+
             if checkbox_voip.get():
                 driver.find_element('xpath', '//*[@id="descricao_aux_plano_venda"]').send_keys("ONT Huawei em comodato + Izy Play")
                 time.sleep(1)
@@ -373,6 +381,8 @@ def abrir_ixc():
                 driver.find_element('xpath', '//*[@id="descricao_aux_plano_venda"]').send_keys("Huawei Ax2 em comodato + Izy Play")
                 time.sleep(1)
                 driver.find_element('xpath', '//*[@id="contrato"]').send_keys(" + 1 ponto Nave Play por R$70,00")
+
+
         else :
             driver.find_element('xpath', '//*[@id="id_modelo"]').send_keys('12' + Keys.TAB)        
             if checkbox_voip.get():
@@ -380,12 +390,18 @@ def abrir_ixc():
                 driver.find_element('xpath', '//*[@id="contrato"]').send_keys( " + Voip por R$30,00" )
             else :
                 driver.find_element('xpath', '//*[@id="descricao_aux_plano_venda"]').send_keys( "Huawei Ax2 em comodato" )
+        
+        
+        
         driver.find_element('xpath', '//*[@id="id_filial"]').clear()
         driver.find_element('xpath', '//*[@id="id_filial"]').send_keys( '2' + Keys.TAB )
         driver.find_element('xpath', '//*[@id="3_form"]/div[3]/ul/li[2]/a').click()
         driver.find_element('xpath', '//*[@id="id_carteira_cobranca"]').clear()
         driver.find_element('xpath', '//*[@id="id_carteira_cobranca"]').send_keys ( '9' + Keys.TAB)
         time.sleep(1)
+
+
+
     driver.find_element('xpath', '//*[@id="3_form"]/div[3]/ul/li[3]/a').click()
     driver.find_element('xpath', '//*[@id="desconto_fidelidade"]').send_keys( '250,00' + Keys.TAB )
     driver.find_element('xpath', '/html/body/form[3]/div[2]/button[2]').click()
@@ -434,40 +450,37 @@ def abrir_ixc():
     driver.find_element('xpath', '//*[@id="10"]/dl/div/div/div[3]/div[1]/button[1]').click()
     time.sleep(1)
     
-    if int(plano) == 100 :
-        driver.find_element('xpath', '//*[@id="id_grupo"]').send_keys( '77' + Keys.TAB )
-    else :
-        if int(plano) == 200 :
-            driver.find_element('xpath', '//*[@id="id_grupo"]').send_keys( '71' + Keys.TAB )
-        else :
-            if int(plano) == 400 :
-                driver.find_element('xpath', '//*[@id="id_grupo"]').send_keys( '27' + Keys.TAB )
-            else :
-                if int(plano) == 500 :
-                    driver.find_element('xpath', '//*[@id="id_grupo"]').send_keys( '64' + Keys.TAB )
-                 
-                else :
-                    if int(plano) == 700 :
-                        driver.find_element('xpath', '//*[@id="id_vd_contrato"]').send_keys( '68' + Keys.TAB )
+    if   int(plano) == 100 : driver.find_element('xpath', '//*[@id="id_grupo"]').send_keys( '77' + Keys.TAB )
+        
+    elif int(plano) == 200 : driver.find_element('xpath', '//*[@id="id_grupo"]').send_keys( '71' + Keys.TAB )
+            
+    elif int(plano) == 400 : driver.find_element('xpath', '//*[@id="id_grupo"]').send_keys( '27' + Keys.TAB )
+                
+    elif int(plano) == 500 : driver.find_element('xpath', '//*[@id="id_grupo"]').send_keys( '64' + Keys.TAB )
+                             
+    elif int(plano) == 700 : driver.find_element('xpath', '//*[@id="id_vd_contrato"]').send_keys( '68' + Keys.TAB )
+                        
     
     driver.find_element('xpath', '//*[@id="login"]').send_keys( pppoe )
+
+
     time.sleep(1)
     pyautogui.hotkey('tab')
+
+
     time.sleep(1)
     pyautogui.hotkey('tab')
+
     time.sleep(1)
     pyautogui.hotkey('tab')
+
+
     time.sleep(1)
     pyautogui.hotkey('tab')
+
+    
     time.sleep(1)
     pyautogui.press('return')
-
-
-
-
-
-
-
 
 
     janela.mainloop()
@@ -485,7 +498,10 @@ for i, dado in enumerate(inputs):
     
 for entry in entries:
     entry.bind("<Return>", bind_enter)
-   
+
+
+
+
 botao_confirmar = Button(janela , width=20, text='Confirmar Cadastro', command=lambda:[ minimize(), obter_inputs(), obter_valor_associado(), obter_condominio(), abrir_ixc()] )
 botao_confirmar.grid(column=1, row=22)
 
