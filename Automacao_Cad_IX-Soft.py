@@ -51,13 +51,11 @@ from behave.contrib.scenario_autoretry import patch_scenario_with_autoretry
 #imports
 #---------------------------------------------------------------
 
-servico = Service(ChromeDriverManager().install())
-driver = webdriver.Chrome(service=servico)
+#servico = Service(ChromeDriverManager().install())
+#driver = webdriver.Chrome(service=servico)
 options = webdriver.ChromeOptions()
-context.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-
-driver.implicitly_wait(10)  
-
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+driver.implicity_wait(10)
 
 
 janela = Tk()
