@@ -49,6 +49,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 servico = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=servico)
+options = webdriver.ChromeOptions()
+context.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
 driver.implicitly_wait(10)  
 
