@@ -35,6 +35,10 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.options import Options
+from behave.contrib.scenario_autoretry import patch_scenario_with_autoretry
+#from webdriver_manager.chrome import ChromeManager
+
 
 #python -m PyInstaller --onefile Automacao_Cad_IX-Soft.py
 
