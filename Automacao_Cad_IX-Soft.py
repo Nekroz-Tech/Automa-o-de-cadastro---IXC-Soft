@@ -318,7 +318,7 @@ def abrir_ixc():
     #CONTRATO 
     driver.find_element('xpath', '//*[@id="2_form"]/div[3]/ul/li[7]/a').click()
     time.sleep(1)
-    driver.find_element('xpath', '/html/body/form[2]/div[3]/div[7]/dl/div/div/div[2]/div[1]/button[1]').click()
+    driver.find_element('xpath', '//*[@id="7"]/dl/div/div/div[2]/div[1]/button[1]').click()
     
     time.sleep(1)
     
