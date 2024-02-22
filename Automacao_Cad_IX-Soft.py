@@ -562,7 +562,7 @@ entry_login = Entry(janela)
 entry_login.grid(column=1, row=34)
 
 Label(janela, text='Senha IXC', width=20).grid(column=0, row=35)
-entry_senha = Entry(janela, show='')  # Use show='' para ocultar a senha
+entry_senha = Entry(janela, show='*')  # Use show='' para ocultar a senha
 entry_senha.grid(column=1, row=35)
 
 Label(janela, text='').grid(column=0, row=36)
