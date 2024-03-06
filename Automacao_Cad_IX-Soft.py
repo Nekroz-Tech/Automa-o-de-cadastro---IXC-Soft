@@ -11,10 +11,6 @@ import time, pyautogui, tkinter as tk, importlib
 servico = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=servico)
 
-
-servico = Service(ChromeDriverManager().install())
-driver = webdriver.Chrome(service=servico)
-
 driver.implicity_wait(10)
 
 
