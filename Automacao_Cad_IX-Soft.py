@@ -1,26 +1,26 @@
 import importlib
 
 # Bibliotecas a serem verificadas
-libs_to_check = ['time', 'pyautogui', 'tkinter', 'selenium', 'webdriver_manager', 'selenium.webdriver.chrome.service']
+#libs_to_check = ['time', 'pyautogui', 'tkinter', 'selenium', 'webdriver_manager', 'selenium.webdriver.chrome.service']
 
 # Verifique e instale as bibliotecas ausentes
-for lib in libs_to_check:
-    try:
-        importlib.import_module(lib)
-    except ImportError:
-        print(f"{lib} não está instalado. Instalando...")
-        try:
-            if lib == 'selenium.webdriver.chrome.service':
-                # Tratamento especial para 'selenium.webdriver.chrome.service'
-                from selenium.webdriver.chrome.service import Service
-            else:
-                # Instalação padrão para outras bibliotecas
-                import pip
-                pip.main(['install', lib])
-        except Exception as e:
-            print(f"Falha ao instalar {lib}: {str(e)}")
-        else:
-            print(f"{lib} instalado com sucesso!")
+#for lib in libs_to_check:
+#    try:
+#        importlib.import_module(lib)
+#    except ImportError:
+#        print(f"{lib} não está instalado. Instalando...")
+#        try:
+#            if lib == 'selenium.webdriver.chrome.service':
+#                # Tratamento especial para 'selenium.webdriver.chrome.service'
+#                from selenium.webdriver.chrome.service import Service
+#            else:
+#                # Instalação padrão para outras bibliotecas
+#                import pip
+#                pip.main(['install', lib])
+#        except Exception as e:
+#            print(f"Falha ao instalar {lib}: {str(e)}")
+#        else:
+#            print(f"{lib} instalado com sucesso!")
 
 # Agora você pode usar as bibliotecas normalmente no restante do seu código
 
@@ -37,7 +37,10 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 from behave.contrib.scenario_autoretry import patch_scenario_with_autoretry
-#from webdriver_manager.chrome import ChromeManager
+import time, pyautogui, tkinter as tk, importlib
+
+servico = Service(ChromeDriverManager().install())
+driver = webdriver.Chrome(service=servico)
 
 
 #python -m PyInstaller --onefile Automacao_Cad_IX-Soft.py
@@ -53,8 +56,8 @@ from behave.contrib.scenario_autoretry import patch_scenario_with_autoretry
 
 #servico = Service(ChromeDriverManager().install())
 #driver = webdriver.Chrome(service=servico)
-options = webdriver.ChromeOptions()
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+#ptions = webdriver.ChromeOptions()
+#driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 driver.implicity_wait(10)
 
 
@@ -350,7 +353,7 @@ def abrir_ixc():
                 driver.find_element('xpath', '//*[@id="descricao_aux_plano_venda"]').send_keys( "ONT Huawei em comodato + Izy Play" )
                 driver.find_element('xpath', '//*[@id="contrato"]').send_keys( " + 1 ponto Nave Play por R$70,00 + Voip por R$20,00" )
             else :
-                driver.find_element('xpath', '//*[@id="descricao_aux_plano_venda"]').send_keys( "Huawei Ax2 em comodato + Izy Play" )
+                driver.find_element('xpath', '//*[@id="descricao_aux_plano_venda"]').send_keys( "Ex141 em comodato + Izy Play" )
                 driver.find_element('xpath', '//*[@id="contrato"]').send_keys( " + 1 ponto Nave Play por R$70,00")
 
 
@@ -370,7 +373,7 @@ def abrir_ixc():
             if checkbox_play.get():
                 driver.find_element('xpath', '//*[@id="descricao_aux_plano_venda"]').send_keys( "" )
             else :
-                driver.find_element('xpath', '//*[@id="descricao_aux_plano_venda"]').send_keys( "Huawei Ax2 em comodato" )
+                driver.find_element('xpath', '//*[@id="descricao_aux_plano_venda"]').send_keys( "Ex141 em comodato" )
         
 
 
@@ -385,7 +388,7 @@ def abrir_ixc():
                 time.sleep(1)
                 driver.find_element('xpath', '//*[@id="contrato"]').send_keys(" + 1 ponto Nave Play por R$70,00 + Voip por R$20,00")
             else :
-                driver.find_element('xpath', '//*[@id="descricao_aux_plano_venda"]').send_keys("Huawei Ax2 em comodato + Izy Play")
+                driver.find_element('xpath', '//*[@id="descricao_aux_plano_venda"]').send_keys("Ex141 em comodato + Izy Play")
                 time.sleep(1)
                 driver.find_element('xpath', '//*[@id="contrato"]').send_keys(" + 1 ponto Nave Play por R$70,00")
 
@@ -396,7 +399,7 @@ def abrir_ixc():
                 driver.find_element('xpath', '//*[@id="descricao_aux_plano_venda"]').send_keys( "ONT Huawei em comodato" )
                 driver.find_element('xpath', '//*[@id="contrato"]').send_keys( " + Voip por R$30,00" )
             else :
-                driver.find_element('xpath', '//*[@id="descricao_aux_plano_venda"]').send_keys( "Huawei Ax2 em comodato" )
+                driver.find_element('xpath', '//*[@id="descricao_aux_plano_venda"]').send_keys( "Ex141 em comodato" )
         
         
         
